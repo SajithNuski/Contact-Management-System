@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/contacts', ContactRoutes)
 
 app.get('/', (req,res)=>{
-    res.send("Sajith NUski")
+    res.send("responce sent")
 })
 
 mongoose.connect(process.env.MONGO_URI)
