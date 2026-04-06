@@ -9,7 +9,7 @@ function ContactList({ contacts, setContacts }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/contacts/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/contacts/${id}`);
       setContacts(contacts.filter((contact) => contact._id !== id));
     } catch (error) {
       console.log(error);
@@ -18,9 +18,10 @@ function ContactList({ contacts, setContacts }) {
 
   const handleStatusChange = async (id, status) => {
     try {
-      const res = await axios.put(`http://localhost:5000/contacts/${id}`, {
-        status,
-      });
+      const res = await axios.put(
+        `${import.meta.env.VITE_API_URL}/contacts/${id}`,
+        { status },
+      );
       setContacts(
         contacts.map((contact) => (contact._id === id ? res.data : contact)),
       );
@@ -34,7 +35,7 @@ function ContactList({ contacts, setContacts }) {
       setLoading(true);
       const query = `?status=${filter}&search=${search}`;
       const fetchPromise = await axios
-        .get(`http://localhost:5000/contacts${query}`)
+        .get(`${import.meta.env.VITE_API_URL}/contacts${query}`)
         .then((res) => setContacts(res.data))
         .catch((error) => console.log(error));
       const delay = new Promise((resolve) => setTimeout(resolve, 1000));
@@ -136,7 +137,6 @@ function ContactList({ contacts, setContacts }) {
               </div>
             ))}
           </div>
-          
         </>
       )}
     </>

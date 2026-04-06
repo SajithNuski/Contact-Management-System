@@ -14,7 +14,7 @@ function ContactForm({ setContacts, contacts }) {
       return alert("Name or Email doesn't fill");
     }
     try {
-      const res = await axios.post("http://localhost:5000/contacts", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/contacts`, {
         name,
         company,
         email,
