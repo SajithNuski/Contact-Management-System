@@ -2,6 +2,11 @@
 
 A full-stack Contact Management System built using the MERN stack. This application allows users to create, view, update, delete, and search contacts efficiently with a clean and responsive UI.
 
+🌐 Live Demo
+
+🚀 Frontend (Vercel): https://contact-management-system-indol.vercel.app/
+⚙️ Backend API (Render): https://contact-management-system-y1sx.onrender.com
+
 ---
 
 ## 🚀 Features
